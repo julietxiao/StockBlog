@@ -41,3 +41,14 @@ def show_definition(request):
     template = get_template('definition.html')
     html = template.render(locals())
     return HttpResponse(html)
+
+def stock_list(request):
+    template = get_template('list.html')
+    stocks = Stock.objects.all()
+    #stocks=Stock.objects.get(Stock.name,Stock.industry,Stock.area)
+   # stock_lists=list()
+   # for name,industry,area in enumerate(stocks):
+           # stock_lists.append(str(name)+str(industry)+str(area)+"<br>")
+    #return HttpResponse(stock_lists)
+    html = template.render(locals())
+    return HttpResponse(html)
