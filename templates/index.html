@@ -3,39 +3,178 @@
 {% block title %} 股票预测系统{% endblock %}
 {% block headmesage %}
     <h3 style="font-family: 楷体;">本站股票列表</h3>
- {% endblock %}
-{% block content %}
-        {% for stock in stocks %}
-        <p style="font-size: 12pt;font-weight: bold">
-            <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>
-        </p>
-
-    {% endfor %}
 {% endblock %}
+{% block content %}
+    <div class="item4">
+        <div class="item5">
+            <div class="item6">个股上涨幅度前五</div>
+            <table width="400px" border="0" cellspacing="0" cellpadding="3" class="tab1">
+                <tbody>
+                <tr class="tab2">
+                    <td rowspan="2">股票名称</td>
+                    <td rowspan="2">12月16日<br> 预测涨幅(%)
+                    </td>
+                    <td colspan="3" class="tab2c">12月16日涨跌概率</td>
+                </tr>
+                <tr class="tab2">
+                    <td>上涨概率(%)</td>
+                    <td>下跌概率(%)</td>
+                    <td class="tab2c">横盘概率(%)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/000923.shtml" target="_blank"
+                           style="text-decoration:none"> 河北宣工</a>
+                    </td>
+                    <td>
+                        <font color="#CC0000">10.03%</font>
+                    </td>
+                    <td>33.33%</td>
+                    <td>-</td>
+                    <td>66.67%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/300496.shtml" target="_blank"
+                           style="text-decoration:none"> 中科创达</a>
+                    </td>
+                    <td>
+                        <font color="#CC0000">10.02%</font>
+                    </td>
+                    <td>100.00%</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/300538.shtml" target="_blank"
+                           style="text-decoration:none"> 同益股份</a>
+                    </td>
+                    <td>
+                        <font color="#CC0000">10.01%</font>
+                    </td>
+                    <td>100.00%</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/300541.shtml" target="_blank"
+                           style="text-decoration:none"> 先进数通</a>
+                    </td>
+                    <td>
+                        <font color="#CC0000">10.01%</font>
+                    </td>
+                    <td>100.00%</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/603569.shtml" target="_blank"
+                           style="text-decoration:none"> 长久物流</a>
+                    </td>
+                    <td>
+                        <font color="#CC0000">9.96%</font>
+                    </td>
+                    <td>50.00%</td>
+                    <td>50.00%</td>
+                    <td>-</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="item5" style="margin-left: 90px;">
+            <div class="item6">个股下跌幅度前五</div>
+            <table width="400px" border="0" cellspacing="0" cellpadding="3" class="tab1">
+                <tbody>
+                <tr class="tab2">
+                    <td rowspan="2">股票名称</td>
+                    <td rowspan="2">12月16日<br> 预测跌幅(%)
+                    </td>
+                    <td colspan="3" class="tab2c">12月16日涨跌概率</td>
+                </tr>
+                <tr class="tab2">
+                    <td>上涨概率(%)</td>
+                    <td>下跌概率(%)</td>
+                    <td class="tab2c">横盘概率(%)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/002715.shtml" target="_blank"
+                           style="text-decoration:none"> 登云股份</a>
+                    </td>
+                    <td>
+                        <font color="#009900">-10.03%</font>
+                    </td>
+                    <td>33.33%</td>
+                    <td>33.33%</td>
+                    <td>33.33%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/300210.shtml" target="_blank"
+                           style="text-decoration:none"> 森远股份</a>
+                    </td>
+                    <td>
+                        <font color="#009900">-10.00%</font>
+                    </td>
+                    <td>-</td>
+                    <td>100.00%</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/600763.shtml" target="_blank"
+                           style="text-decoration:none"> 通策医疗</a>
+                    </td>
+                    <td>
+                        <font color="#009900">-9.30%</font>
+                    </td>
+                    <td>66.67%</td>
+                    <td>33.33%</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/603887.shtml" target="_blank"
+                           style="text-decoration:none"> 城地股份</a>
+                    </td>
+                    <td>
+                        <font color="#009900">-8.55%</font>
+                    </td>
+                    <td>76.72%</td>
+                    <td>21.55%</td>
+                    <td>1.72%</td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="http://yuce.stock.hexun.com/stock/603738.shtml" target="_blank"
+                           style="text-decoration:none"> 泰晶科技</a>
+                    </td>
+                    <td>
+                        <font color="#009900">-8.53%</font>
+                    </td>
+                    <td>78.88%</td>
+                    <td>19.08%</td>
+                    <td>2.04%</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 
+    <div style="clear: both"></div>
+    <hr>
+    <table width="840px" border="0" cellspacing="0" cellpadding="3" class="tab1">
+        <tr>
+            {% for stock in stocks %}
+                <td style="">
+                    <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>
+                </td>
+                {% if forloop.counter|divisibleby:8 %}</tr>{% endif %}
+            {% endfor %}
 
+    </table>
 
-{#<html>#}
-{#<head>#}
-{#    <meta charset="utf-8">#}
-{#    {% block title %} {% endblock %}#}
-{##}
-{#</head>#}
-{#<body>#}
-{#    <h1>#}
-{#        股票预测系统#}
-{#    </h1>#}
-{#    <hr>#}
-{#    {{ stocks }}#}
-{#    {% for stock in stocks %}#}
-{#        <p style="font-size: 16pt;font-weight: bold">#}
-{#            <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>#}
-{#        </p>#}
-{##}
-{#    {% endfor %}#}
-{#    <hr>#}
-{#    <h3>#}
-{#        现在时刻: {{ now }}#}
-{#    </h3>#}
-{#</body>#}
-{#</html>#}
+{% endblock %}

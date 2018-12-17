@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 import os
 import sys
-import importlib
-importlib.reload(sys)
-# sys.setdefaultencoding("utf-8")
+#reload(sys)
+#sys.setdefaultencoding("utf-8")
 
 if __name__ == "__main__":
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mblog.settings")
