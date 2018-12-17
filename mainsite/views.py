@@ -36,3 +36,8 @@ def show_stock(request, stock_code):
             return HttpResponse(html)
     except:
         return redirect('/')
+    
+def show_definition(request):
+    template = get_template('definition.html')
+    html = template.render(locals())
+    return HttpResponse(html)

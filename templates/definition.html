@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %} {{ stock.name }}-名词解释 {% endblock %}
+{% block headmesage %}
+    <h3 style="font-family: 楷体;">股票名词解释</h3>
+ {% endblock %}
+{% block content %}
+    <h3 style="font-family: 楷体;">预测涨幅：该股当日收盘时如果上涨可能到达的幅度，介于1～10％之间</h3>
+    <h3 style="font-family: 楷体;">预测跌幅：该股当日收盘时如果下跌可能到达的幅度，介于-1～-10％之间</h3>
+    <h3 style="font-family: 楷体;">上涨概率：该股当日收盘时较前日涨幅大于1％的可能性，介于0～100％之间 </h3>
+{% endblock %}
+
+
