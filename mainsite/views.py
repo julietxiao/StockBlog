@@ -36,3 +36,10 @@ def show_stock(request, stock_code):
             return HttpResponse(html)
     except:
         return redirect('/')
+
+
+def show_useKown(request):
+    temmplate=get_template('useKown.html')
+    html=temmplate.render(locals())
+
+    return HttpResponse(html)
