@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %} 股票预测系统{% endblock %}
+{% block headmesage %}
+    <h3 style="font-family: 楷体;">本站股票列表</h3>
+ {% endblock %}
+{% block content %}
+        {% for stock in stocks %}
+        <p style="font-size: 16pt;font-weight: bold">
+            <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>
+        </p>
+
+    {% endfor %}
+{% endblock %}
+
+
+
+{#<html>#}
+{#<head>#}
+{#    <meta charset="utf-8">#}
+{#    {% block title %} {% endblock %}#}
+{##}
+{#</head>#}
+{#<body>#}
+{#    <h1>#}
+{#        股票预测系统#}
+{#    </h1>#}
+{#    <hr>#}
+{#    {{ stocks }}#}
+{#    {% for stock in stocks %}#}
+{#        <p style="font-size: 16pt;font-weight: bold">#}
+{#            <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>#}
+{#        </p>#}
+{##}
+{#    {% endfor %}#}
+{#    <hr>#}
+{#    <h3>#}
+{#        现在时刻: {{ now }}#}
+{#    </h3>#}
+{#</body>#}
+{#</html>#}
