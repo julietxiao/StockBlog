@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block title %} {{ stock.name }}-名词解释 {% endblock %}
+{% block headmesage %}
+    <h3 style="font-family: 楷体;">股票名词解释</h3>
+ {% endblock %}
+{% block content %}
+    <table border=1>
+        <tr>
+            <td width=300 align=center>股票名称</td>
+            <td width=300 align=center>公司</td>
+            <td width=300 align=center>地点</td>
+        </tr>
+        <div class='stockgroup'>
+            <div class='stockgroup-item'>
+                {% for stock in stocks %}
+                <tr>
+                    <td align=center>{{ stock.name }}</td>
+                    <td align=center>{{ stock.industry}}</td>
+                    <td align=center>{{  stock.area}}</td>
+                </tr>
+                {% endfor %}
+            </div>
+        </div>
+    </table>
+{% endblock %}
