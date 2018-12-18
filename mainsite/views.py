@@ -7,6 +7,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from datetime import datetime
+import numpy as np
+import random
 
 from .models import Stock
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
@@ -25,9 +27,29 @@ def homepage(request):
     #                       "</small><br></br>")
 
     now = datetime.now()
+    upper5, upper_five_stock = upper_top_five()
+    lower5, lower_five_stock = lower_top_five()
     html = template.render(locals())
 
     return HttpResponse(html)
+
+
+def upper_top_five():
+    upper_five_stock = Stock.objects.all()[1:6]
+    res = np.zeros((5, 3), dtype=np.int)
+    for i in range(5):
+        arr = np.random.random_integers(0, 50, 3)
+        res[i] = arr
+    return res, upper_five_stock
+
+
+def lower_top_five():
+    lower_five_stock = Stock.objects.all()[10:16]
+    res = np.zeros((5, 3), dtype=np.int)
+    for i in range(5):
+        arr = np.random.random_integers(0, 50, 3)
+        res[i] = arr
+    return res, lower_five_stock
 
 
 def show_stock(request, stock_code):
