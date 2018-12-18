@@ -4,23 +4,40 @@
 {% block headmesage %}
     <h3 style="font-family: 楷体;">股票名词解释</h3>
  {% endblock %}
-{% block content %}
-    <table border=1>
-        <tr>
-            <td width=300 align=center>股票名称</td>
-            <td width=300 align=center>公司</td>
-            <td width=300 align=center>地点</td>
-        </tr>
-        <div class='stockgroup'>
-            <div class='stockgroup-item'>
-                {% for stock in stocks %}
-                <tr>
-                    <td align=center>{{ stock.name }}</td>
-                    <td align=center>{{ stock.industry}}</td>
-                    <td align=center>{{  stock.area}}</td>
-                </tr>
-                {% endfor %}
-            </div>
-        </div>
-    </table>
+{% block content %}  
+    <ul>
+            <table border=1 id="idData">
+                    <tr>
+                        <td width=300 align=center>股票名称</td>
+                        <td width=300 align=center>公司</td>
+                        <td width=300 align=center>地点</td>
+                    </tr>
+                    <div class='stockgroup'>
+                        <div class='stockgroup-item'>
+                            {% for stock in s %}
+                            <tr>
+                                <td style="align=center">
+                                    <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>
+                                </td>
+                                <td align=center>{{ stock.industry}}</td>
+                                <td align=center>{{  stock.area}}</td>
+                            </tr>
+                            {% endfor %}
+                        </div>
+                    </div>
+            </table>
+        <button class='btn btn-info'>
+            目前是第{{s.number}}页</a>
+        </button>
+        {% if s.has_previous %}
+            <button class='btn btn-info'>
+                <a href="/list/?p={{s.previous_page_number}}">上一页</a>
+            </button>
+        {% endif %}
+        {% if s.has_next %}
+            <button class='btn btn-info'>
+                <a href="/list/?p={{s.next_page_number}}">下一页</a>
+            </button>
+        {% endif %}
+    </ul>
 {% endblock %}

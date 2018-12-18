@@ -2,13 +2,14 @@
 
 from __future__ import unicode_literals
 from django.template.loader import get_template
+from django.template import Context,RequestContext
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from datetime import datetime
 
 from .models import Stock
-
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 # Create your views here.
 def homepage(request):
@@ -53,12 +54,15 @@ def show_useKnown(request):
 
 
 def stock_list(request):
-    template = get_template('list.html')
     stocks = Stock.objects.all()
-    #stocks=Stock.objects.get(Stock.name,Stock.industry,Stock.area)
-   # stock_lists=list()
-   # for name,industry,area in enumerate(stocks):
-           # stock_lists.append(str(name)+str(industry)+str(area)+"<br>")
-    #return HttpResponse(stock_lists)
-    html = template.render(locals())
-    return HttpResponse(html)
+    paginator=Paginator(stocks,10)
+    p=request.GET.get('p')
+    try:
+        s=paginator.page(p)
+    except PageNotAnInteger:
+        s=paginator.page(1)
+    except EmptyPage:
+        s=paginator.page(paginator.num_pages)
+    #request_context=RequestContext(request)
+    #request_context.push(locals())
+    return render(request,'list.html',locals())
