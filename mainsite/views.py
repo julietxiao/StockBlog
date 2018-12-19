@@ -55,7 +55,7 @@ def show_useKnown(request):
 
 def stock_list(request):
     stocks = Stock.objects.all()
-    paginator=Paginator(stocks,10)
+    paginator=Paginator(stocks,30)
     p=request.GET.get('p')
     try:
         s=paginator.page(p)
@@ -66,3 +66,8 @@ def stock_list(request):
     #request_context=RequestContext(request)
     #request_context.push(locals())
     return render(request,'list.html',locals())
+
+def stock_contact(request):
+    template = get_template('contact.html')
+    html = template.render(locals())
+    return HttpResponse(html)

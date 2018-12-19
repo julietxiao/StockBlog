@@ -8,15 +8,15 @@
     <ul>
             <table border=1 id="idData">
                     <tr>
-                        <td width=300 align=center>股票名称</td>
-                        <td width=300 align=center>公司</td>
-                        <td width=300 align=center>地点</td>
+                        <td style="font-family:verdana;font-size:120%;" width=300 align=center><strong>股票名称</strong></td>
+                        <td style="font-family:verdana;font-size:120%;" width=300 align=center><strong>公司</strong></td>
+                        <td style="font-family:verdana;font-size:120%;" width=300 align=center><strong>地点</strong></td>
                     </tr>
                     <div class='stockgroup'>
                         <div class='stockgroup-item'>
                             {% for stock in s %}
                             <tr>
-                                <td style="align=center">
+                                <td align=center>
                                     <a href='/stock/{{ stock.code }}'>{{ stock.name }}</a>
                                 </td>
                                 <td align=center>{{ stock.industry}}</td>
