@@ -7,6 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from datetime import datetime
+from static.utils import LSTM
 import numpy as np
 import random
 
@@ -25,7 +26,7 @@ def homepage(request):
     #                       str(stock.industry.encode('utf-8')) + "\t" +
     #                       str(stock.area.encode('utf-8')) + "\t" +
     #                       "</small><br></br>")
-
+    test = LSTM()
     now = datetime.now()
     upper5, upper_five_stock = upper_top_five()
     lower5, lower_five_stock = lower_top_five()
