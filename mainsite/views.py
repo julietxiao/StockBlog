@@ -7,7 +7,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from datetime import datetime
-from static.utils import LSTM
+from utils.util import LSTM
 import numpy as np
 import random
 
@@ -26,7 +26,7 @@ def homepage(request):
     #                       str(stock.industry.encode('utf-8')) + "\t" +
     #                       str(stock.area.encode('utf-8')) + "\t" +
     #                       "</small><br></br>")
-    test = LSTM()
+
     now = datetime.now()
     upper5, upper_five_stock = upper_top_five()
     lower5, lower_five_stock = lower_top_five()
@@ -57,11 +57,13 @@ def show_stock(request, stock_code):
     template = get_template('stock.html')
     try:
         stock = Stock.objects.get(code=stock_code)
+        acc = LSTM(str(stock_code))
         if stock != None:
             html = template.render(locals())
             return HttpResponse(html)
     except:
         return redirect('/')
+
 
     
 def show_definition(request):
