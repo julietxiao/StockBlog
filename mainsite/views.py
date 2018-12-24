@@ -64,6 +64,21 @@ def show_stock(request, stock_code):
         return redirect('/')
 
 
+def search(request):
+    template = get_template('stock.html')
+    if request.POST:
+        code = request.POST['code']
+    try:
+        stock = Stock.objects.get(code=code)
+        # acc = LSTM(str(stock_code))
+        stock_url = "/static/images/pic/" + str(stock.code) + "pre.png"
+        if stock != None:
+            html = template.render(locals())
+            return HttpResponse(html)
+    except:
+        return redirect('/')
+
+
     
 def show_definition(request):
     template = get_template('definition.html')
