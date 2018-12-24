@@ -7,10 +7,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from datetime import datetime
-from utils.util import LSTM
 import numpy as np
 import random
-
 from .models import Stock
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
@@ -57,7 +55,8 @@ def show_stock(request, stock_code):
     template = get_template('stock.html')
     try:
         stock = Stock.objects.get(code=stock_code)
-        acc = LSTM(str(stock_code))
+        # acc = LSTM(str(stock_code))
+        stock_url = "/static/images/pic/" + str(stock.code) + "pre.png"
         if stock != None:
             html = template.render(locals())
             return HttpResponse(html)
@@ -96,3 +95,4 @@ def stock_contact(request):
     template = get_template('contact.html')
     html = template.render(locals())
     return HttpResponse(html)
+

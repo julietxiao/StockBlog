@@ -2,13 +2,15 @@
 {% extends 'base.html' %}
 {% block title %} {{ stock.name }}-股票预测 {% endblock %}
 {% block headmesage %}
-        <h3>{{ stock.name }}-股票预测精确度-{{ acc }}
+        <h3>{{ stock.name }}-股票预测
 {#        <a href="/">{{ stock.name }}</a>#}
         </h3>
- {% endblock %}
+ {% endblock %}s
 {% block content %}
                 <p style="font-size: 12pt;letter-spacing:2pt">
-            {{ stock.code }} {{ stock.industry }}
+{#            {{ stock.code }} {{ stock.industry }}#}
+
+                <img id="picture" src='{{ stock_url}}' alt="图片加载失败"/>
         </p>
 {% endblock %}
 
