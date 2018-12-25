@@ -67,7 +67,7 @@ def show_stock(request, stock_code):
 
 def search(request):
     template = get_template('stock.html')
-    if request.POST:
+    if request.method == 'POST':
         code = request.POST['code']
     stock_url = "/static/images/pic/" + str(code) + "pre.png"
     try:
@@ -79,7 +79,8 @@ def search(request):
             return redirect('/error')
     except:
         return redirect('/error')
-
+    else:
+        return render(request, 'stock.html')
 
     
 def show_definition(request):
