@@ -68,15 +68,16 @@ def search(request):
     template = get_template('stock.html')
     if request.POST:
         code = request.POST['code']
+    stock_url = "/static/images/pic/" + str(code) + "pre.png"
     try:
         stock = Stock.objects.get(code=code)
-        # acc = LSTM(str(stock_code))
-        stock_url = "/static/images/pic/" + str(stock.code) + "pre.png"
         if stock != None:
             html = template.render(locals())
             return HttpResponse(html)
+        else:
+            return redirect('/error')
     except:
-        return redirect('/')
+        return redirect('/error')
 
 
     
@@ -111,3 +112,7 @@ def stock_contact(request):
     html = template.render(locals())
     return HttpResponse(html)
 
+def show_error(request):
+    template = get_template('error.html')
+    html = template.render(locals())
+    return HttpResponse(html)

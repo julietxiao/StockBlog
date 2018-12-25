@@ -7,12 +7,23 @@
         </h3>
  {% endblock %}s
 {% block content %}
+    <style type="text/css">
+        .pic{
+            float:left;
+            width: 50%;
+        }
+
+        .intro{
+            float:right;
+            width: 30%;
+        }
+    </style>
                 <p style="font-size: 12pt;letter-spacing:2pt">
 {#            {{ stock.code }} {{ stock.industry }}#}
         <div class="stock">
 
             <div class="pic">
-                <img id="picture" src='{{ stock_url}}' alt="图片加载失败"/>
+                <img id="picture" src='{{ stock_url}}' alt="图片加载失败" onerror="this.src='/static/images/pic/000056pre.png'"/>
             </div>
 
             <div class="intro">
@@ -29,15 +40,7 @@
 
 {% endblock %}
 
-.pic{
-    float:left;
-    width: 50%;
-}
 
-.intro{
-    float:right;
-    width: 50%;
-}
 
 {#<!DOCTYPE html>#}
 {#<html>#}
