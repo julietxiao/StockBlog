@@ -10,8 +10,9 @@ class Stock(models.Model):
     name = models.CharField(max_length=100)
     industry = models.CharField(max_length=100)
     area = models.CharField(max_length=100)
-
+    # 涨跌幅
     p_change = models.CharField(max_length=100)
+    # 价格变动
     price_change = models.CharField(max_length=100)
     # pe 市盈率
     pe = models.CharField(max_length=100)
