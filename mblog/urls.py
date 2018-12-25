@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from mainsite.views import homepage, show_stock,show_definition,stock_list,show_useKnown,stock_contact
+from mainsite.views import homepage, show_stock,show_definition,stock_list,show_useKnown,stock_contact,search
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -24,5 +24,6 @@ urlpatterns = [
     url(r'def', show_definition),
     url(r'list',stock_list),
     url(r'useknown', show_useKnown),
-    url(r'contact',stock_contact)
+    url(r'contact',stock_contact),
+    url(r'^search/$',search)
 ]
