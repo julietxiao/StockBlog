@@ -1,16 +1,45 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-{% block title %} {{ stock.name }}-股票列表 {% endblock %}
+{% block title %} {{ stock.name }}-股票预测 {% endblock %}
 {% block headmesage %}
-        <h3>{{ stock.name }}
+        <h3>{{ stock.name }}-股票预测
 {#        <a href="/">{{ stock.name }}</a>#}
         </h3>
- {% endblock %}
+ {% endblock %}s
 {% block content %}
+    <style type="text/css">
+        .pic{
+            float:left;
+            width: 50%;
+        }
+
+        .intro{
+            float:right;
+            width: 30%;
+        }
+    </style>
                 <p style="font-size: 12pt;letter-spacing:2pt">
-            {{ stock.code }} {{ stock.industry }}
+{#            {{ stock.code }} {{ stock.industry }}#}
+        <div class="stock">
+
+            <div class="pic">
+                <img id="picture" src='{{ stock_url}}' alt="图片加载失败" onerror="this.src='/static/images/pic/000056pre.png'"/>
+            </div>
+
+            <div class="intro">
+                <p>红线:实际值</p>
+                <p>蓝线：预测值</p>
+                <p>价格变动：{{ stock.price_change }}</p>
+                <p>涨跌幅：{{ stock.p_change }}</p>
+
+            </div>
+
+        </div>
         </p>
+
+
 {% endblock %}
+
 
 
 {#<!DOCTYPE html>#}

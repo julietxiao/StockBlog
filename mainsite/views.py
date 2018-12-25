@@ -9,7 +9,6 @@ from django.shortcuts import redirect
 from datetime import datetime
 import numpy as np
 import random
-
 from .models import Stock
 from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
@@ -27,40 +26,60 @@ def homepage(request):
     #                       "</small><br></br>")
 
     now = datetime.now()
-    upper5, upper_five_stock = upper_top_five()
-    lower5, lower_five_stock = lower_top_five()
+    upper_five_stock = upper_top_five()
+    lower_five_stock = lower_top_five()
     html = template.render(locals())
 
     return HttpResponse(html)
 
 
 def upper_top_five():
-    upper_five_stock = Stock.objects.all()[1:6]
-    res = np.zeros((5, 3), dtype=np.int)
-    for i in range(5):
-        arr = np.random.random_integers(0, 50, 3)
-        res[i] = arr
-    return res, upper_five_stock
+    # upper_five_stock = Stock.objects.all()[1:6]
+    # 市盈率
+    data = Stock.objects.order_by('pe')
+    data = data[::-1]
+    upper_five_stock = data[0:5]
+
+    return upper_five_stock
 
 
 def lower_top_five():
-    lower_five_stock = Stock.objects.all()[10:16]
-    res = np.zeros((5, 3), dtype=np.int)
-    for i in range(5):
-        arr = np.random.random_integers(0, 50, 3)
-        res[i] = arr
-    return res, lower_five_stock
+    data = Stock.objects.order_by('npr')
+    data = data[::-1]
+
+    lower_five_stock = data[0:5]
+
+    return lower_five_stock
 
 
 def show_stock(request, stock_code):
     template = get_template('stock.html')
     try:
         stock = Stock.objects.get(code=stock_code)
+        # acc = LSTM(str(stock_code))
+        stock_url = "/static/images/pic/" + str(stock.code) + "pre.png"
         if stock != None:
             html = template.render(locals())
             return HttpResponse(html)
     except:
         return redirect('/')
+
+
+def search(request):
+    template = get_template('stock.html')
+    if request.POST:
+        code = request.POST['code']
+    stock_url = "/static/images/pic/" + str(code) + "pre.png"
+    try:
+        stock = Stock.objects.get(code=code)
+        if stock != None:
+            html = template.render(locals())
+            return HttpResponse(html)
+        else:
+            return redirect('/error')
+    except:
+        return redirect('/error')
+
 
     
 def show_definition(request):
@@ -91,5 +110,10 @@ def stock_list(request):
 
 def stock_contact(request):
     template = get_template('contact.html')
+    html = template.render(locals())
+    return HttpResponse(html)
+
+def show_error(request):
+    template = get_template('error.html')
     html = template.render(locals())
     return HttpResponse(html)

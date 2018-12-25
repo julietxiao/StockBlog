@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 {% extends 'base.html' %}
-{% block title %} 股票预测系统{% endblock %}
+{% block title %} {{ test }}股票预测系统{% endblock %}
 {% block headmesage %}
     <h3 style="font-family: 楷体;">个股预测排行</h3>
 {% endblock %}
 {% block content %}
     <div class="item4">
         <div class="item5">
-            <div class="item6">个股上涨幅度前五</div>
+            <div class="item6">个股市盈率前五</div>
             <table width="400px" border="0" cellspacing="0" cellpadding="3" class="tab1">
                 <tbody>
                 <tr class="tab2">
                     <td rowspan="2">股票名称</td>
-                    <td rowspan="2">12月16日<br> 预测涨幅(%)</td>
-                    <td colspan="2" class="tab2c">12月16日涨跌概率</td>
+                    <td rowspan="2">12月24日<br> 市盈率(%)</td>
+                    <td colspan="2" class="tab2c">12月24日涨跌幅</td>
                 </tr>
                 <tr class="tab2">
-                    <td>上涨概率(%)</td>
-                    <td>下跌概率(%)</td>
+                    <td>涨跌幅(%)</td>
+                    <td>价格变动(%)</td>
                 </tr>
 
-                {% for arr in upper5 %}
+                {% for s in upper_five_stock %}
                     <tr>
                         <td>
-                            {% for s in upper_five_stock %}
-                                {% if forloop.first %}
-                                    <a href="./stock/{{ s.code }}" style="text-decoration:none"> {{ s.name }} </a>
-                                {% endif %}
-                            {% endfor %}
+                            <a href="./stock/{{ s.code }}" style="text-decoration:none"> {{ s.name }} </a>
                         </td>
-                        {% for i in arr %}
-                            {% if forloop.first %}
-                                <td><font color="#CC0000">{{ i }}%</font></td>
-                            {% elif forloop %}
-                                <td>{{ i }}</td>
-                            {% endif %}
-                        {% endfor %}
+                        <td><font color="#CC0000">{{ s.pe }}%</font></td>
+                        <td>{{ s.p_change }}</td>
+                        <td>{{ s.price_change }}</td>
                     </tr>
                 {% endfor %}
 
@@ -43,36 +35,29 @@
             </table>
         </div>
         <div class="item5" style="margin-left: 90px;">
-            <div class="item6">个股下跌幅度前五</div>
+            <div class="item6">个股净利润率前五</div>
             <table width="400px" border="0" cellspacing="0" cellpadding="3" class="tab1">
                 <tbody>
                 <tr class="tab2">
                     <td rowspan="2">股票名称</td>
-                    <td rowspan="2">12月16日<br> 预测跌幅(%)</td>
-                    <td colspan="2" class="tab2c">12月16日涨跌概率</td>
+                    <td rowspan="2">12月24日<br> 净利润率(%)</td>
+                    <td colspan="2" class="tab2c">12月16日涨跌幅</td>
                 </tr>
                 <tr class="tab2">
-                    <td>上涨概率(%)</td>
-                    <td>下跌概率(%)</td>
+                    <td>涨跌幅(%)</td>
+                    <td>价格变动(%)</td>
                 </tr>
-                {% for arr in lower5 %}
+                {% for s in lower_five_stock %}
                     <tr>
-                        <td>
-                            {% for s in lower_five_stock %}
-                                {% if forloop.first %}
-                                    <a href="./stock/{{ s.code }}" style="text-decoration:none"> {{ s.name }} </a>
-                                {% endif %}
-                            {% endfor %}
-                        </td>
-                        {% for i in arr %}
-                            {% if forloop.first %}
-                                <td><font color="#CC0000">{{ i }}%</font></td>
-                            {% elif forloop %}
-                                <td>{{ i }}</td>
-                            {% endif %}
-                        {% endfor %}
+                            <td>
+                                <a href="./stock/{{ s.code }}" style="text-decoration:none"> {{ s.name }} </a>
+                            </td>
+                            <td><font color="#CC0000">{{ s.npr }}%</font></td>
+                            <td>{{ s.p_change }}</td>
+                            <td>{{ s.price_change }}</td>
                     </tr>
                 {% endfor %}
+
                 </tbody>
             </table>
         </div>

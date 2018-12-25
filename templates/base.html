@@ -1,14 +1,15 @@
-<!DOCTYPE html>
 <!-- 加载静态文件 -->
 {% load staticfiles %}
+ <script type="text/javascript" src="{% static "/js/jquery-3.3.1.min.js" %}"></script>
+
+<!DOCTYPE html>
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>
         {% block title %} {% endblock %}
     </title>
-
-    <script type="text/javascript" src='static/js/jquery-3.3.1.min.js'></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="{% static 'index.css' %}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
@@ -60,4 +61,7 @@
 </div>
 
 </body>
+
+
 </html>
+
