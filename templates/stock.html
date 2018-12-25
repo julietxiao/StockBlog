@@ -9,11 +9,35 @@
 {% block content %}
                 <p style="font-size: 12pt;letter-spacing:2pt">
 {#            {{ stock.code }} {{ stock.industry }}#}
+        <div class="stock">
 
+            <div class="pic">
                 <img id="picture" src='{{ stock_url}}' alt="图片加载失败"/>
+            </div>
+
+            <div class="intro">
+                <p>红线:实际值</p>
+                <p>蓝线：预测值</p>
+                <p>价格变动：{{ stock.price_change }}</p>
+                <p>涨跌幅：{{ stock.p_change }}</p>
+
+            </div>
+
+        </div>
         </p>
+
+
 {% endblock %}
 
+.pic{
+    float:left;
+    width: 50%;
+}
+
+.intro{
+    float:right;
+    width: 50%;
+}
 
 {#<!DOCTYPE html>#}
 {#<html>#}
