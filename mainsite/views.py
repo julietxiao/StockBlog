@@ -3,10 +3,13 @@
 from __future__ import unicode_literals
 from django.template.loader import get_template
 from django.template import Context,RequestContext
+
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.shortcuts import redirect
+from django.shortcuts import render_to_response
 from datetime import datetime
+from django.views.decorators.csrf import csrf_exempt
 import numpy as np
 import random
 from .models import Stock
@@ -64,7 +67,7 @@ def show_stock(request, stock_code):
     except:
         return redirect('/')
 
-
+@csrf_exempt
 def search(request):
     template = get_template('stock.html')
     if request.method == 'POST':
@@ -75,12 +78,13 @@ def search(request):
         if stock != None:
             html = template.render(locals())
             return HttpResponse(html)
+            # return render_to_response("stock.html", context_instance=RequestContext(request))
         else:
             return redirect('/error')
     except:
         return redirect('/error')
-    else:
-        return render(request, 'stock.html')
+
+
 
     
 def show_definition(request):
