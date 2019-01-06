@@ -22,5 +22,7 @@ http://123.206.51.151:7777/
 项目部署在这台服务器了.访问可点击
 
 ##项目截图
+![Image text]()
+![Image text]()
+![Image text]()
 
-<img src =“/static/images/logo.png ”width =“200”> 
