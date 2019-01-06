@@ -23,7 +23,7 @@ http://123.206.51.151:7777/
 项目部署在这台服务器了.访问可点击
 
 
-##项目截图
+## 项目截图
 ![Image text](https://raw.githubusercontent.com/julietxiao/StockBlog/master/static/images/Screeshot1.png)
 ![Image text](https://raw.githubusercontent.com/julietxiao/StockBlog/master/static/images/Screeshot2.png)
 ![Image text](https://raw.githubusercontent.com/julietxiao/StockBlog/master/static/images/Screeshot3.png)
