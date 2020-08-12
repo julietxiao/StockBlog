@@ -23,7 +23,10 @@ http://123.206.51.151:7777/(现已失效)
 
 
 ## 系统截图
-![系统首页](https://github/julietxiao/StockBlog/raw/master/static/images/Screenshot1.png)
-![股票列表](https://github/julietxiao/StockBlog/raw/master/list.png)
-![股票预测](https://github/julietxiao/StockBlog/raw/master/static/images/Screenshot3.png)
+### 首页
+![image](https://github/julietxiao/StockBlog/master/static/index.jpg)
+### 列表
+![image](https://github/julietxiao/StockBlog/master/static/list.jpg)
+### 预测
+![image](https://github/julietxiao/StockBlog/master/static/predict.jpg)
 
