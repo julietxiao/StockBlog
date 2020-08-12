@@ -18,13 +18,12 @@
     密码 firstTest
 
 
-## 部署
+## 预览
 http://123.206.51.151:7777/(现已失效)
-项目部署在这台服务器了.访问可点击
 
 
-## 项目截图
-![系统首页](https://github/julietxiao/StockBlog/raw/master/pic/home.png)
-![股票预测](https://github/julietxiao/StockBlog/raw/master/pic/predict.png)
-![股票列表](https://github/julietxiao/StockBlog/raw/master/pic/list.png)
+## 系统截图
+![系统首页](https://github/julietxiao/StockBlog/raw/master/static/images/Screenshot1.png)
+![股票列表](https://github/julietxiao/StockBlog/raw/master/static/images/Screenshot2.png)
+![股票预测](https://github/julietxiao/StockBlog/raw/master/static/images/Screenshot3.png)
 
