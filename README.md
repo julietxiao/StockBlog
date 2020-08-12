@@ -19,12 +19,12 @@
 
 
 ## 部署
-http://123.206.51.151:7777/
+http://123.206.51.151:7777/(现已失效)
 项目部署在这台服务器了.访问可点击
 
 
 ## 项目截图
-![Image text](https://raw.githubusercontent.com/julietxiao/StockBlog/master/static/images/Screeshot1.png)
-![Image text](https://raw.githubusercontent.com/julietxiao/StockBlog/master/static/images/Screeshot2.png)
-![Image text](https://raw.githubusercontent.com/julietxiao/StockBlog/master/static/images/Screeshot3.png)
+![系统首页](https://github/julietxiao/StockBlog/raw/master/pic/home.png)
+![股票预测](https://github/julietxiao/StockBlog/raw/master/pic/predict.png)
+![股票列表](https://github/julietxiao/StockBlog/raw/master/pic/list.png)
 
